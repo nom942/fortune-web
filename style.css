@@ -142,6 +142,27 @@ body, html {
     color: #fff; 
 }
 
+ /* Footer */
+ .footer {
+    display: flex; 
+    background-color: #1b2029;
+    height: 8vh;
+}
+
+ .footer-text {
+    display: flex; 
+    color: #888A8D;
+    margin-left: 35px;
+}
+
+.footer-img {
+    display: flex; 
+    color: #888A8D;
+    width: 70px;
+    height: auto;
+    margin-left: 1370px;
+}
+
 /* Section 3 */
 .section3 {
     display: flex; 
@@ -201,7 +222,7 @@ body, html {
     display: flex;
     flex-direction: column;
     margin: 20px;
-    margin-left: -100px; 
+    margin-left: -37px; 
     background-color: #1B2126; 
     padding: 20px; 
     border-radius: 5px; 
