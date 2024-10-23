@@ -126,7 +126,7 @@ body, html {
     color: #888A8D;
 }
 
-.rules-btn, .join-btn {
+.rules-btn, .join-btn, .features-btn {
     display: inline-block;
     padding: 10px 20px;
     border: 2px solid #d8493f; 
@@ -163,20 +163,20 @@ body, html {
     margin-top: 130px;
 }
 
-.rules-header {
+.rules-header, .features-header {
     font-size: 4rem; 
     margin-bottom: 30px;
     color: #fff;
     text-align: left;
 }
 
-.rule-title {
+.rule-title, .features-title {
     font-size: 2.5rem; 
     margin: 20px 0 10px; 
     color: #d8493f; 
 }
 
-.rule-description {
+.rule-description, .features-description {
     font-size: 1.5rem; 
     margin-bottom: 30px; 
     color: #888A8D;
@@ -274,6 +274,14 @@ body, html {
     display: none;
     opacity: 0; 
     transition: opacity 0.5s ease; 
+}
+
+/* Section 4 */
+.section4 {
+    display: flex; 
+    background-color: #11151B;
+    flex-direction: column; 
+    height: 145vh;
 }
 
 
