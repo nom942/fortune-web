@@ -147,7 +147,7 @@ body, html {
     display: flex; 
     background-color: #11151B;
     flex-direction: column; 
-    height: 180vh;
+    height: 115vh;
 }
 
 .content {
@@ -200,7 +200,8 @@ body, html {
 .application-form {
     display: flex;
     flex-direction: column;
-    margin: 20px auto; 
+    margin: 20px;
+    margin-left: -100px; 
     background-color: #1B2126; 
     padding: 20px; 
     border-radius: 5px; 
