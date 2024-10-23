@@ -24,17 +24,19 @@
         </div>
 
         <div class="content">
-            <h1 class="application-header">Application Form</h1>
 
             <form class="application-form" id="application-form">
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username" required>
+                <label for="steamusername">Steam Username:</label>
+                <input type="text" id="steamusername" name="steamusername" required>
+
+                <label for="steamid">SteamID64:</label>
+                <input type="text" id="steamid" name="steamid" required>
+
+                <label for="discordusername">Discord Username:</label>
+                <input type="text" id="discordusername" name="discordusername" required>
 
                 <label for="age">Age:</label>
                 <input type="number" id="age" name="age" required>
-
-                <label for="discord">Discord Tag:</label>
-                <input type="text" id="discord" name="discord" placeholder="Example#1234" required>
 
                 <label for="experience">What is your experience with SCP:SL?</label>
                 <textarea id="experience" name="experience" rows="4" required></textarea>
@@ -64,17 +66,19 @@
             form.addEventListener('submit', function(event) {
                 event.preventDefault(); 
 
-                const username = document.getElementById('username').value;
+                const steamusername = document.getElementById('steamusername').value;
+                const steamid = document.getElementById('steamid').value;
+                const discordusername = document.getElementById('discordusername').value;
                 const age = document.getElementById('age').value;
-                const discordTag = document.getElementById('discord').value;
                 const experience = document.getElementById('experience').value;
                 const motivation = document.getElementById('motivation').value;
                 const rulesAgreement = document.getElementById('rules').value;
 
                 const data = {
-                    username: username,
+                    steamusername: steamusername,
+                    steamid: steamid,
+                    discordusername: discordusername,
                     age: age,
-                    discordTag: discordTag,
                     experience: experience,
                     motivation: motivation,
                     rulesAgreement: rulesAgreement
@@ -86,13 +90,53 @@
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({
-                        content: `New Application Submitted!\n\n**Username:** ${data.username}\n**Age:** ${data.age}\n**Discord Tag:** ${data.discordTag}\n**Experience:** ${data.experience}\n**Motivation:** ${data.motivation}\n**Agrees to Rules:** ${data.rulesAgreement}`
+                        embeds: [{
+                            title: 'New Application Submitted',
+                            color: 15158332, 
+                            fields: [
+                                {
+                                    name: 'Steam Username',
+                                    value: data.steamusername,
+                                    inline: false 
+                                },
+                                {
+                                    name: 'SteamID64',
+                                    value: data.steamid,
+                                    inline: false
+                                },
+                                {
+                                    name: 'Discord Username',
+                                    value: data.discordusername,
+                                    inline: false
+                                },
+                                {
+                                    name: 'Age',
+                                    value: data.age,
+                                    inline: false
+                                },
+                                {
+                                    name: 'Experience',
+                                    value: data.experience,
+                                    inline: false 
+                                },
+                                {
+                                    name: 'Motivation',
+                                    value: data.motivation,
+                                    inline: false
+                                },
+                                {
+                                    name: 'Agrees to Rules',
+                                    value: data.rulesAgreement,
+                                    inline: false
+                                }
+                            ],
+                        }]
                     })
                 })
                 .then(response => {
                     if (response.ok) {
                         showNotification('Application submitted successfully!', true);
-                        form.reset(); // Reset form after submission
+                        document.getElementById('application-form').reset(); 
                     } else {
                         showNotification('Failed to submit application. Please try again.', false);
                     }
@@ -101,21 +145,21 @@
                     console.error('Error:', error);
                     showNotification('An error occurred while submitting your application.', false);
                 });
+
             });
 
             function showNotification(message, isSuccess) {
                 notificationBox.textContent = message;
-                notificationBox.style.backgroundColor = isSuccess ? '#2b2f33' : '#d8493f'; // Change color based on success or failure
-                notificationBox.style.display = 'block'; // Show the notification box
-                notificationBox.style.opacity = '1'; // Fade in
+                notificationBox.style.backgroundColor = isSuccess ? '#2b2f33' : '#d8493f'; 
+                notificationBox.style.display = 'block';
+                notificationBox.style.opacity = '1'; 
 
-                // Fade out after a few seconds
                 setTimeout(() => {
-                    notificationBox.style.opacity = '0'; // Fade out
+                    notificationBox.style.opacity = '0'; 
                     setTimeout(() => {
-                        notificationBox.style.display = 'none'; // Hide the box after fading out
-                    }, 500); // Match with the CSS transition duration
-                }, 3000); // Display for 3 seconds
+                        notificationBox.style.display = 'none'; 
+                    }, 500); 
+                }, 3000);
             }
         });
     </script>
