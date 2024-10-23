@@ -147,7 +147,7 @@ body, html {
     display: flex; 
     background-color: #11151B;
     flex-direction: column; 
-    height: 115vh;
+    height: 180vh;
 }
 
 .content {
@@ -272,6 +272,14 @@ body, html {
     background-color: #11151B;
     flex-direction: column; 
     height: 145vh;
+}
+
+/* Section 5 */
+.section5 {
+    display: flex; 
+    background-color: #11151B;
+    flex-direction: column; 
+    height: 115vh;
 }
 
 
